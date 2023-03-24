@@ -4,17 +4,23 @@ package org.example.fibonacci;
     import java.util.Scanner;
 
     public class fibonacci {
+        public static int[] fibonacciSeries(int n) {
+            int[] series = new int[n];
+            series[0] = 0;
+            series[1] = 1;
+            for (int i = 2; i < n; i++) {
+                series[i] = series[i - 1] + series[i - 2];
+            }
+            return series;
+        }
+
         public static void main(String[] args) {
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Enter the number : ");
-            int numTerms = scanner.nextInt();
-            int prev = 0, next = 1;
-            System.out.print("Fibonacci Series up to " + numTerms + " terms: ");
-            for (int i = 1; i <= numTerms; ++i) {
-                System.out.print(prev + " ");
-                int sum = prev + next;
-                prev = next;
-                next = sum;
+            fibonacci fib=new fibonacci();
+
+            int printSeries[]=fib.fibonacciSeries(7);
+
+            for (int i=0; i<printSeries.length; i++){
+                System.out.println(printSeries[i]);
             }
         }
     }
